@@ -1,7 +1,60 @@
-html {
-  background-image: url("../images/poster.png");
-  background-size: cover;
+.image {
+  background-image: url(poster.jpg);
+  background-size: cover; /*image adapts to screen size change/doesn't get cut off*/
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  
+  width: 100vw;
+  height: 100vh; /*100% of the viewport*/
+  
+  position: fixed;
+  top: 0px; /*gets rid of the white borders on the sides*/
+  left: 0px;
+  z-index: -1; /*sends image to back; can only use if you have the position property set*/
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+main {
+  display: flex; /*automatically puts it in rows*/
+  flex-direction: column; /*changes it to be in column*/
+  justify-content: space-between; /*placing it in center of flexbox along y-axis*/
+  
+  font-size: 4vmin; /*using rem, it will follow the font size someone has set for themselves; using vmin, we can make font responsive to whichever, height or width of viewport, is smaller. not good to set font sizes in px for accessibility reasons*/
+  font-family: sans-serif;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  text-align: center;
+
+  margin: 0 auto; /*0 margin above and below; left and right fills as much margin as possible such that it puts it in the center of the page*/
+  height: 100vh;
+  max-width: 400px; /*this way, rather than width, the text would overflow beyond visible viewport*/
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.logo {
+  /*transform: translateY(-40px);*/ /*when we want to nudge something up or down; translateY nudges it up or down; translateX nudges it left and right*/
+  animation: spin 3s infinite linear; /*animation name, duration, timing function, fill mode*/
+}
+
+@keyframes spin {
+  0% { transform: translateY(-40px) rotate(0deg); }
+  100% { transform: translateY(-40px) rotate(360deg); }
+}
+.fancy {
+  display: block; /*forces it into next line*/
+  font-family: "Mea Culpa", cursive;
+  text-transform: none;
+  font-size: 10vmin;
+  transform: translateY(-3vmin);
+  
+  animation: fadeIn 2s ease-in forwards;
 }
