@@ -45,10 +45,17 @@ main {
   animation: spin 3s infinite linear; /*animation name, duration, timing function, fill mode*/
 }
 
+@media (max-width: 415px) {
+  .logo {
+    margin-bottom: 80px; 
+  }
+}
+
 @keyframes spin {
   0% { transform: translateY(-40px) rotate(0deg); }
   100% { transform: translateY(-40px) rotate(360deg); }
 }
+
 .fancy {
   display: block; /*forces it into next line*/
   font-family: "Mea Culpa", cursive;
